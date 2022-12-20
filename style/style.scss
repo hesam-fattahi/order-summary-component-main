@@ -1,0 +1,155 @@
+$color-blue--very-pale: hsl(225, 100%, 98%);
+$color-blue--pale: hsl(225, 100%, 94%);
+$color-blue--desaturated: hsl(224, 23%, 55%);
+$color-blue--bright: hsl(245, 75%, 52%);
+$color-blue--dark: hsl(223, 47%, 23%);
+
+@import "./_reset.scss";
+
+body {
+  background-color: $color-blue--pale;
+  color: $color-blue--dark;
+  min-height: 100vh;
+  padding: 2.4rem;
+  display: grid;
+  place-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: top no-repeat url(../images/pattern-background-desktop.svg);
+  }
+}
+
+.card {
+  z-index: 10;
+  max-width: 44.6rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 2rem rgba($color-blue--desaturated, 0.25);
+
+  &__box {
+    background-color: white;
+    padding: 4.4rem 4.4rem 3.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 1.4rem;
+}
+
+.paragraph {
+  color: $color-blue--desaturated;
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+}
+
+.plan {
+  width: 100%;
+  background-color: $color-blue--very-pale;
+  padding: 2.6rem 2.4rem;
+  border-radius: 1rem;
+  margin-bottom: 3.2rem;
+  display: grid;
+  grid-template-columns: 4.8rem 1fr min-content;
+  align-items: center;
+  gap: 1.6rem;
+  position: relative;
+
+  img {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    background-color: $color-blue--pale;
+  }
+
+  p {
+    text-align: left;
+  }
+
+  &__type {
+    font-size: 1.7rem;
+    font-weight: 900;
+  }
+
+  &__price {
+    color: $color-blue--desaturated;
+  }
+
+  a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-blue--bright;
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      opacity: 0.75;
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  padding: 1.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  transition: 0.3s ease-out;
+
+  &--proceed {
+    background-color: $color-blue--bright;
+    color: white;
+    box-shadow: 0 0.5rem 2rem rgba($color-blue--bright, 0.5);
+    margin-bottom: 1.6rem;
+    font-weight: 700;
+
+    &:hover,
+    &:active {
+      opacity: 0.75;
+    }
+  }
+
+  &--cancel {
+    background: none;
+    color: $color-blue--desaturated;
+    font-weight: 900;
+
+    &:hover,
+    &:active {
+      color: $color-blue--dark;
+    }
+  }
+}
+
+@media (max-width: 31em) {
+  .card__box {
+    padding: 2.4rem 2.4rem 1.8rem;
+  }
+
+  .plan {
+    padding: 1.8rem 1.4rem;
+    gap: 1rem;
+    line-height: 1.5;
+
+    &__type {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  body::before {
+    background: top no-repeat url(../images/pattern-background-mobile.svg);
+  }
+}
